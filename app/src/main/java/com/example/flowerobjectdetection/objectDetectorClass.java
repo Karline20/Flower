@@ -126,17 +126,21 @@ public class  objectDetectorClass {
         // stores class of object
 
         // add it to object_map;
-        output_map.put(0,boxes);
-        output_map.put(1,classes);
-        output_map.put(2,scores);
+        // if model is more than 1 change to 1 3 0
+//        output_map.put(0,boxes);
+//        output_map.put(1,classes);
+//        output_map.put(2,scores);
+        output_map.put(1,boxes);
+        output_map.put(3,classes);
+        output_map.put(0,scores);
 
         // now predict
         interpreter.runForMultipleInputsOutputs(input,output_map);
         //      1. Loading tensorflow lite model
         //      2. Predicting object
-        Object value=output_map.get(0);
-        Object Object_class=output_map.get(1);
-        Object score=output_map.get(2);
+        Object value=output_map.get(1);
+        Object Object_class=output_map.get(3);
+        Object score=output_map.get(0);
 
         // loop through each object
         // as output has only 10 boxes

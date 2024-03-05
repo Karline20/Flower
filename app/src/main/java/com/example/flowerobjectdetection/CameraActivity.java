@@ -80,7 +80,7 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         mOpenCvCameraView.setCvCameraViewListener(this);
 
         try{
-            objectDetectorClass=new objectDetectorClass(getAssets(),"sunflower_model.tflite","label_flower.txt",320);
+            objectDetectorClass=new objectDetectorClass(getAssets(),"model.tflite","label_flower.txt",320);
             Log.d("MainActivity","Model is successfully loaded");
         }
         catch (IOException e){
